@@ -130,3 +130,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# chingkingm
+/resbackup/
+/plugins-for-Hoshino/
+/HoshinoBot-xcwRecord/
+/erinilis-modules/
