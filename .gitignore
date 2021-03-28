@@ -1,7 +1,7 @@
 # Config Files
 config.py
 config.json
-hoshino/config/
+# hoshino/config/
 local_coolq_config/
 
 # Database
