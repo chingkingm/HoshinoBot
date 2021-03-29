@@ -309,3 +309,11 @@ def calculate_strengthen_points(start = 1, end = 20):
         value += CONSUME_STRENGTHEN_POINTS[start]
         start += 1
     return value
+
+
+
+
+
+
+
+

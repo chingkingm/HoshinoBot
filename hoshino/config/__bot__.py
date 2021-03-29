@@ -41,6 +41,7 @@ MODULES_ON = {
     'pulipuli',
     'neteasemusic',
     'hiumsentences',
+    'rss',
     # 'hourcall',
     # 'kancolle',
     # 'mikan',
