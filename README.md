@@ -1,4 +1,22 @@
 # HoshinoBot
+## 自用修改版.
+[原项目地址](https://github.com/Ice-Cirno/HoshinoBot)
+部署参考了[文章1](http://www.passbya.xyz/2020/11/26/%E7%BB%99%E7%BE%A4%E9%87%8C%E7%9A%84%E6%9C%8B%E5%8F%8B%E6%9D%A5%E4%B8%AA%E5%A6%88%E5%90%A7%EF%BC%81HoshinoBot%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99/)、[文章2](https://blog.csdn.net/u010416101/article/details/109589409)，感谢。
+
+包含模块：
+|名称|启用功能|
+|-|-|
+|自带bootmanager,dice,groupmaster| |
+|[Genshin_Impact_bot](https://github.com/H-K-Y/Genshin_Impact_bot)|原神抽卡，资源列表 ,圣遗物收集...|
+|[genshinuid](https://github.com/pcrbot/erinilis-modules/tree/master/genshinuid)|通过uid查询原神游戏信息|
+|[egenshin](https://github.com/pcrbot/erinilis-modules/tree/master/egenshin)|原神公告及材料收集提醒|
+|[shebot](https://github.com/pcrbot/plugins-for-Hoshino/tree/master/shebot)|rua，setu|
+|[pulipuli](https://github.com/zangxx66/HoshinoBot-xcwRecord#%E5%8E%BB%E4%BD%A0%E5%A4%A7%E7%88%B7%E7%9A%84%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F)|哔哩哔哩小程序自动转链接|
+|[music](https://github.com/pcrbot/music)|点歌|
+|[hiumsentences](https://github.com/pcrbot/hiumsentences)|网抑云语录和表情|
+|[rss](https://github.com/zyujs/rss)|rss订阅|
+
+
 
 A qqbot for Princess Connect Re:Dive (and other usage :)
 

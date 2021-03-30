@@ -39,7 +39,7 @@ MODULES_ON = {
     'egenshin',
     'shebot',
     'pulipuli',
-    'neteasemusic',
+    'music',
     'hiumsentences',
     'rss',
     # 'hourcall',
