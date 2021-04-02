@@ -137,3 +137,4 @@ venv.bak/
 /HoshinoBot-xcwRecord/
 /erinilis-modules/
 hoshino\modules\Genshin_Impact_bot\query_resource_points\icon
+hoshino/modules/Genshin_Impact_bot/material_remind/group_list.json

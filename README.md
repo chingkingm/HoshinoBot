@@ -1,6 +1,7 @@
 # HoshinoBot
 ## 自用修改版.
 [原项目地址](https://github.com/Ice-Cirno/HoshinoBot)
+
 部署参考了[文章1](http://www.passbya.xyz/2020/11/26/%E7%BB%99%E7%BE%A4%E9%87%8C%E7%9A%84%E6%9C%8B%E5%8F%8B%E6%9D%A5%E4%B8%AA%E5%A6%88%E5%90%A7%EF%BC%81HoshinoBot%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%80%E5%8D%95%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99/)、[文章2](https://blog.csdn.net/u010416101/article/details/109589409)，感谢。
 
 包含模块：
@@ -10,14 +11,30 @@
 |[Genshin_Impact_bot](https://github.com/H-K-Y/Genshin_Impact_bot)|原神抽卡，资源列表 ,圣遗物收集...|
 |[genshinuid](https://github.com/pcrbot/erinilis-modules/tree/master/genshinuid)|通过uid查询原神游戏信息|
 |[egenshin](https://github.com/pcrbot/erinilis-modules/tree/master/egenshin)|原神公告及材料收集提醒|
-|[shebot](https://github.com/pcrbot/plugins-for-Hoshino/tree/master/shebot)|rua，setu|
+|[shebot](https://github.com/pcrbot/plugins-for-Hoshino/tree/master/shebot)|rua|
 |[pulipuli](https://github.com/zangxx66/HoshinoBot-xcwRecord#%E5%8E%BB%E4%BD%A0%E5%A4%A7%E7%88%B7%E7%9A%84%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F)|哔哩哔哩小程序自动转链接|
 |[music](https://github.com/pcrbot/music)|点歌|
 |[hiumsentences](https://github.com/pcrbot/hiumsentences)|网抑云语录和表情|
 |[rss](https://github.com/zyujs/rss)|rss订阅|
+|[setu_renew](https://github.com/pcrbot/setu_renew)|船新的涩图|
+|genshinid|原神信息、深渊查询。~~来源官方Q群~~|
+|[ngaclanbattlespider](https://github.com/GWYOG/GWYOG-Hoshino-plugins#4-nga%E4%BC%9A%E6%88%98%E7%88%AC%E8%99%ABngaclanbattlespider)|魔改成了崩坏3深渊战场速报|
+
+另外，使用了@[iamwyh2019](https://github.com/iamwyh2019)大佬修改的[广播](https://github.com/iamwyh2019/custom-HoshinoBot/blob/master/hoshino/modules/botmanage/broadcast.py)及[反滥用](https://github.com/iamwyh2019/custom-HoshinoBot/blob/master/hoshino/modules/groupmaster/anti_abuse.py)模块，一并感谢。
 
 ----
-
+## 修补记录
+### 2021/04/02
+- 调整反滥用模块，使用@[iamwyh2019](https://github.com/iamwyh2019)大佬修改的版本。
+- 添加genshinid模块，群里找的，通过uid查询具体的角色信息，深渊战斗情况等。
+- 魔改了@[GWYOG](https://github.com/GWYOG)的[ngaclanbattlespider](https://github.com/GWYOG/GWYOG-Hoshino-plugins#4-nga%E4%BC%9A%E6%88%98%E7%88%AC%E8%99%ABngaclanbattlespider)模块，把它变成了崩坏3深渊战场速报。同时因为其对priconne模块的调用会产生2个用不到的服务，修改了priconne下的相关文件。
+- 修复setu_renew禁用源无法使用的问题。
+- 其他。
+  
+### 之前的见commit。
+---
+<details>
+<summary>原版文档</summary>
 A qqbot for Princess Connect Re:Dive (and other usage :)
 
 **2020年8月2日0点，qq机器人框架相继停止维护。**
@@ -327,4 +344,4 @@ access_token_secret = "your_access_token_secret"
 **公主连结Re: Dive Fan Club - 硬核的竞技场数据分析站**: https://pcrdfans.com/
 
 **yobot**: https://yobot.win/
-
+</details>

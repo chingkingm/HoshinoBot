@@ -4,7 +4,7 @@
 """
 
 # hoshino监听的端口与ip
-PORT = 8080
+PORT = 18080
 HOST = '127.0.0.1'      # 本地部署使用此条配置（QQ客户端和bot端运行在同一台计算机）
 # HOST = '0.0.0.0'      # 开放公网访问使用此条配置（不安全）
 
@@ -34,7 +34,7 @@ MODULES_ON = {
     'botmanage',
     'dice',
     'groupmaster',
-    'Genshin_Impact_bot',
+    # 'Genshin_Impact_bot',
     'genshinuid',
     'egenshin',
     'shebot',
@@ -43,6 +43,8 @@ MODULES_ON = {
     'hiumsentences',
     'rss',
     'setu_renew',
+    'genshinid',
+    'ngaclanbattlespider',
     # 'hourcall',
     # 'kancolle',
     # 'mikan',
