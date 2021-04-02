@@ -42,6 +42,7 @@ MODULES_ON = {
     'music',
     'hiumsentences',
     'rss',
+    'setu_renew',
     # 'hourcall',
     # 'kancolle',
     # 'mikan',
