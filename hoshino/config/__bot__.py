@@ -45,6 +45,7 @@ MODULES_ON = {
     'setu_renew',
     'genshinid',
     'ngaclanbattlespider',
+    'genshintune',
     # 'hourcall',
     # 'kancolle',
     # 'mikan',

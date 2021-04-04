@@ -83,3 +83,8 @@ nyb_player = f'''{R.img('newyearburst.gif').cqcode}
 async def new_year_burst(bot, ev):
     if random.random() < 0.02:
         await bot.send(ev, nyb_player)
+
+@sv.on_keyword(('机器人怎么弄', '机器人哪搞的'))
+async def chat_bushu(bot, ev):
+    await bot.send(ev, 'http://t.cn/A6cU7rFS ,完全可以自己搭')
+    await bot.send(ev, R.img('有手就行.jpg').cqcode)

@@ -19,11 +19,15 @@
 |[setu_renew](https://github.com/pcrbot/setu_renew)|船新的涩图|
 |genshinid|原神信息、深渊查询。~~来源官方Q群~~|
 |[ngaclanbattlespider](https://github.com/GWYOG/GWYOG-Hoshino-plugins#4-nga%E4%BC%9A%E6%88%98%E7%88%AC%E8%99%ABngaclanbattlespider)|魔改成了崩坏3深渊战场速报|
+|genshintune|原神运势，自行添加了崩3版|
 
 另外，使用了@[iamwyh2019](https://github.com/iamwyh2019)大佬修改的[广播](https://github.com/iamwyh2019/custom-HoshinoBot/blob/master/hoshino/modules/botmanage/broadcast.py)及[反滥用](https://github.com/iamwyh2019/custom-HoshinoBot/blob/master/hoshino/modules/groupmaster/anti_abuse.py)模块，一并感谢。
 
 ----
 ## 修补记录
+### 2021/04/04
+- 添加原神运势模块，包含原神及崩坏3的运势抽签，仅供娱乐。
+- chat模块新增"机器人怎么弄"，这难道不是有手就行吗？
 ### 2021/04/02
 - 调整反滥用模块，使用@[iamwyh2019](https://github.com/iamwyh2019)大佬修改的版本。
 - 添加genshinid模块，群里找的，通过uid查询具体的角色信息，深渊战斗情况等。
