@@ -11,7 +11,7 @@
 |[Genshin_Impact_bot](https://github.com/H-K-Y/Genshin_Impact_bot)|原神抽卡，资源列表 ,圣遗物收集...|
 |[genshinuid](https://github.com/pcrbot/erinilis-modules/tree/master/genshinuid)|通过uid查询原神游戏信息|
 |[egenshin](https://github.com/pcrbot/erinilis-modules/tree/master/egenshin)|原神公告及材料收集提醒|
-|[shebot](https://github.com/pcrbot/plugins-for-Hoshino/tree/master/shebot)|rua|
+|[shebot](https://github.com/pcrbot/plugins-for-Hoshino/tree/master/shebot)|rua，轮盘赌|
 |[pulipuli](https://github.com/zangxx66/HoshinoBot-xcwRecord#%E5%8E%BB%E4%BD%A0%E5%A4%A7%E7%88%B7%E7%9A%84%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F)|哔哩哔哩小程序自动转链接|
 |[music](https://github.com/pcrbot/music)|点歌|
 |[hiumsentences](https://github.com/pcrbot/hiumsentences)|网抑云语录和表情|
@@ -20,11 +20,15 @@
 |genshinid|原神信息、深渊查询。~~来源官方Q群~~|
 |[ngaclanbattlespider](https://github.com/GWYOG/GWYOG-Hoshino-plugins#4-nga%E4%BC%9A%E6%88%98%E7%88%AC%E8%99%ABngaclanbattlespider)|魔改成了崩坏3深渊战场速报|
 |genshintune|原神运势，自行添加了崩3版|
+|[午间音乐pcrmiddaymusic](https://github.com/GWYOG/GWYOG-Hoshino-plugins#5-%E5%85%AC%E4%B8%BB%E8%BF%9E%E7%BB%93%E5%8D%88%E9%97%B4%E9%9F%B3%E4%B9%90pcrmiddaymusic)|自动推送音乐|
 
 另外，使用了@[iamwyh2019](https://github.com/iamwyh2019)大佬修改的[广播](https://github.com/iamwyh2019/custom-HoshinoBot/blob/master/hoshino/modules/botmanage/broadcast.py)及[反滥用](https://github.com/iamwyh2019/custom-HoshinoBot/blob/master/hoshino/modules/groupmaster/anti_abuse.py)模块，一并感谢。
 
 ----
 ## 修补记录
+### 2021/04/06
+- 添加了午间音乐模块，来自[公主连结午间音乐pcrmiddaymusic](https://github.com/GWYOG/GWYOG-Hoshino-plugins#5-%E5%85%AC%E4%B8%BB%E8%BF%9E%E7%BB%93%E5%8D%88%E9%97%B4%E9%9F%B3%E4%B9%90pcrmiddaymusic).每日自动推送崩坏3及原神相关音乐。
+- 开启轮盘赌功能，自己摸了个递增禁言
 ### 2021/04/04
 - 添加原神运势模块，包含原神及崩坏3的运势抽签，仅供娱乐。
 - chat模块新增"机器人怎么弄"，这难道不是有手就行吗？

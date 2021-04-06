@@ -18,11 +18,8 @@ sv = Service('nga-spider', bundle='崩坏3订阅', help_='''
 FILE_FOLDER_PATH=os.path.dirname(__file__)
 
 URL_CN = 'https://bbs.nga.cn/thread.php?fid=549'
-URL_JP = 'https://bbs.nga.cn/thread.php?fid=549'
-URL_TW = 'https://bbs.nga.cn/thread.php?fid=549'
-# ADDITIONAL_CLAN_BATTLE_KEYWORDS = ['周目', '排刀', '筛刀', '尾刀', '补偿刀', '补时刀', '挂树', '弟弟刀', '物理刀', '法刀', '白羊座', '金牛座', '双子座', '巨蟹座',
-                    #    '狮子座', '处女座', '天秤座', '天蝎座', '射手座', '摩羯座', '水瓶座', '双鱼座']
-ADDITIONAL_CLAN_BATTLE_KEYWORDS = ['深渊速报', '战场速报']
+
+ADDITIONAL_CLAN_BATTLE_KEYWORDS = ['深渊速报', '战场速报', '是', '我']
 
 @dataclass
 class Item:
@@ -35,11 +32,11 @@ class Item:
 
 
 class NGASpider(BaseSpider):
-    url = {'cn': URL_CN, 'jp': URL_JP, 'tw': URL_TW}
+    url = {'cn': URL_CN}
     src_name = "深渊战场爬虫"
     cookies = {}
-    idx_cache = {'cn': [], 'jp': [], 'tw': []}
-    item_cache = {'cn': [], 'jp': [], 'tw': []}
+    idx_cache = {'cn': []}
+    item_cache = {'cn': []}
 
     @classmethod
     def set_cookies(cls, cookies):
@@ -68,14 +65,14 @@ class NGASpider(BaseSpider):
             Item(idx=result['href'].split('=')[1],
                  title=result.get_text(),
                  content="{}\n{}".format(
-                     result.get_text(), 'https://bbs.nga.cn' + result['href'])
+                     '深渊/战场速报时间\n',result.get_text() +'\n~~~\n')
                  ) for result in soup.find_all(class_='topic')
         ]
 
     @classmethod
     def format_items(cls, items):
         contents = [i.content for i in items]
-        return f'{cls.src_name}在首页发现{len(contents)}个新的帖子:\n' + '\n'.join(contents)
+        return '\n'.join(contents)
 
 
 def load_file(filename, default_obj = {}):
@@ -129,9 +126,7 @@ async def spider_work(spider: BaseSpider, bot, section, broadcast_groups, sv: Se
 def get_broadcast_groups():
     config = load_file('spider_config.json')
     broadcast_groups = {}
-    broadcast_groups['cn'] = [gid for gid in config.keys() if config[gid]=='国服']
-    broadcast_groups['jp'] = [gid for gid in config.keys() if config[gid]=='日服']
-    broadcast_groups['tw'] = [gid for gid in config.keys() if config[gid]=='台服']
+    broadcast_groups['cn'] = [gid for gid in config.keys() if config[gid]=='1']
     return broadcast_groups
 
 
@@ -153,14 +148,7 @@ async def turn_on_spider(bot, ev: CQEvent):
         await bot.finish(ev, '抱歉，您非管理员，无此指令使用权限')
     config = load_file('spider_config.json')
     gid = str(ev.group_id)
-    s = ev.message.extract_plain_text()
-    if s == '':
-        s = config[gid].replace('(已禁用)', '') if config.get(gid) is not None else '国服'
-    if s not in ['国服', '日服', '台服']:
-        await bot.finish(ev, '错误: 参数请从"国服"/"日服"/"台服"中选择')
-    else:
-        section = s
-    config[gid] = section
+    config[gid] = '1'
     if save_file(config, 'spider_config.json'):
         await bot.send(ev, f'深渊战场爬虫已启用')
     else:
@@ -181,11 +169,11 @@ async def turn_off_spider(bot, ev: CQEvent):
         await bot.send(ev, '禁用深渊战场爬虫失败，请重试')
 
 
-@sv.scheduled_job('cron', minute='0/1')
+@sv.scheduled_job('cron', minute='*/1', hour='8,9,11,15,16', day_of_week='0,1,4')
 # hour='8,9,15,16', week='1,2,5'
 async def nga_spider():
     broadcast_groups = get_broadcast_groups()
-    if not (broadcast_groups['cn'] or broadcast_groups['jp'] or broadcast_groups['tw']):
+    if not (broadcast_groups['cn']):
         return
     bot = hoshino.get_bot()
     NGASpider.set_cookies(await get_nga_cookies())
