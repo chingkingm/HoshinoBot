@@ -12,6 +12,7 @@ async def say_hello(session):
 
 
 sv = Service('chat', visible=False)
+# sv = Service('chat')
 
 @sv.on_fullmatch('沙雕机器人')
 async def say_sorry(bot, ev):
@@ -84,7 +85,14 @@ async def new_year_burst(bot, ev):
     if random.random() < 0.02:
         await bot.send(ev, nyb_player)
 
-@sv.on_keyword(('机器人怎么弄', '机器人哪搞的'))
+@sv.on_keyword(('机器人怎么弄', '机器人哪'))
 async def chat_bushu(bot, ev):
     await bot.send(ev, 'http://t.cn/A6cU7rFS ,完全可以自己搭')
     await bot.send(ev, R.img('有手就行.jpg').cqcode)
+
+@sv.on_fullmatch(('妹妹'), only_to_me = True)
+async def onijiang(bot, ev):
+    if ev.user_id == 2263748482:
+        await bot.send(ev, '欧尼酱~')
+    else:
+        await bot.send(ev, R.img('欧尼酱.jpg').cqcode)

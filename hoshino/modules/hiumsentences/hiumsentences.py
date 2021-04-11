@@ -45,6 +45,7 @@ async def net_ease_cloud_word(bot,ev:CQEvent):
     gid = ev.group_id
     if not _lmt.check(gid):
         # 冲太多...哦不是, 抑郁太多对身体不好
+        await bot.send(ev, '冲太多...哦不是, 抑郁太多对身体不好')
         return
     _lmt.start_cd(gid)
     try:

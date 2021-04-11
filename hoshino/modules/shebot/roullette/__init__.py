@@ -11,7 +11,7 @@ import re, asyncio, os, json
 sv = Service('俄罗斯轮盘赌')
 FILE_FOLDER_PATH = os.path.dirname(__file__)
 
-lmt = DailyNumberLimiter(12)
+lmt = DailyNumberLimiter(15)
 @sv.on_fullmatch(('轮盘赌', '俄罗斯轮盘赌'))
 async def roulette(bot: HoshinoBot, ev: Event):
     try:
@@ -40,8 +40,8 @@ async def fire(event: Event, session: ActSession):
         await session.finish(event, '请先发送“开始”进行游戏')
 
     if not session.pos:
-        session.state['pos'] = randint(1, 6) #拨动轮盘，pos为第几发是子弹 """
-        # session.state['pos'] = 6
+        # session.state['pos'] = randint(1, 6) #拨动轮盘，pos为第几发是子弹 """
+        session.state['pos'] = 1
     if not session.state.get('times'):
         session.state['times'] = 1
 
@@ -51,24 +51,26 @@ async def fire(event: Event, session: ActSession):
     pos = session.pos
     times = session.times
     if pos == times: #shoot
-        lmt.increase(event.user_id)
+        if lmt.check(event.user_id):
+            lmt.increase(event.user_id)
         time_d = lmt.get_num(event.user_id)
-        time_d = 60*pow(2, time_d)
         idx = str(event.user_id) +' '+ str(time_d)
         load_file(f'idx_cache.json',[])
         save_file(idx,f'idx_cahce.json')
+        time_d = 60*pow(2, time_d-1)
         session.close()
         await session.send(event, '枪响了，你死了！枪毙' + str(time_d) + '秒')
         await silence(event, time_d)
     elif times == 5:
         session.close()
         user = session.rotate.__next__()
-        lmt.increase(user)
+        if lmt.check(user):
+            lmt.increase(user)
         time_d = lmt.get_num(user)
-        time_d = 60*pow(2, time_d)
         idx = str(user) +' '+ str(time_d)
         load_file(f'idx_cache.json',[])
         save_file(idx,f'idx_cahce.json')
+        time_d = 60*pow(2, time_d-1)
         await session.send(event, f'你长舒了一口气，并反手击毙了{MessageSegment.at(user)}'+str(time_d) + '秒')
         await session.bot.set_group_ban(group_id=event.group_id, user_id=user, duration=time_d)
     else:
@@ -84,7 +86,7 @@ async def start_roulette(event: Event, session: ActSession):
     if not session.state.get('started'):
         session.state['started'] = True
         rule = """
-        轮盘容量为6，但只填充了一发子弹，请参与游戏的双方轮流发送开枪，枪响结束.
+        轮盘容量为6，但只填充了一发子弹，请参与游戏的各位轮流发送开枪，枪响结束.
         """.strip()
         if not session.rotate: #user轮流
             shuffle(session.users)
