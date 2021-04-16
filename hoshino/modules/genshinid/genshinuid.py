@@ -228,7 +228,7 @@ def JsonAnalysis(JsonText,Uid, ServerID):
         if (i["name"] == "旅行者"):
             if (i["image"].find("UI_AvatarIcon_PlayerGirl") != -1):
                 TempText = (
-                    i["name"]+ "[萤——妹妹]" + 
+                    i["name"]+ "[荧——妹妹]" + 
                     "\n" + str(i["level"]) + "级，" 
                     + Character_Type 
                 )

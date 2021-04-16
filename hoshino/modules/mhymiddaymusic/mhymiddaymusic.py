@@ -13,7 +13,11 @@ FILE_FOLDER_PATH = os.path.dirname(__file__)
 
 config_using = set()
 CONFIG_PATH = os.path.join(FILE_FOLDER_PATH,'pushed_music.json')
-
+NoticeMessage = '''总团长建议：
+健康游戏，理性氪金。
+没有经济收入的白嫖；
+有经济收入的冲个月卡就行；
+喜欢的话氪个凭证。'''
 
 class Config:
     def __init__(self, gid, config_path):
@@ -136,7 +140,7 @@ async def music_push(bot, ev: CQEvent):
     await bot.send(ev, get_music_from_song_data(song_data))
 
 
-@sv.scheduled_job('cron',minute='3', hour='0,12')
+@sv.scheduled_job('cron',minute='1',hour='12')
 async def music_daily_push():
     bot = hoshino.get_bot()
     glist = await sv.get_enable_groups()
@@ -146,4 +150,5 @@ async def music_daily_push():
         sid = random.choice(selfids)
         await bot.send_group_msg(self_id=sid, group_id=gid, message=info_head+song_info)
         await bot.send_group_msg(self_id=sid, group_id=gid, message=get_music_from_song_data(song_data))
+        await bot.send_group_msg(self_id=sid, group_id=gid, message=NoticeMessage)
         await asyncio.sleep(2)

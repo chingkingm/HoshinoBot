@@ -26,6 +26,11 @@
 
 ----
 ## 修补记录
+### 2021/04/16
+- 添加问答模块
+- 添加大头菜模块
+- 添加随机少女模块
+- 更正ysinfo的错别字
 ### 2021/04/06
 - 添加了午间音乐模块，来自[公主连结午间音乐pcrmiddaymusic](https://github.com/GWYOG/GWYOG-Hoshino-plugins#5-%E5%85%AC%E4%B8%BB%E8%BF%9E%E7%BB%93%E5%8D%88%E9%97%B4%E9%9F%B3%E4%B9%90pcrmiddaymusic).每日自动推送崩坏3及原神相关音乐。
 - 开启轮盘赌功能，自己摸了个递增禁言
