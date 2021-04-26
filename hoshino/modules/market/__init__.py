@@ -1,7 +1,6 @@
 from .manager import manager
-from .backend import json_backend, balance, duel_backend
-from .product import coincap_product, sina_product, sochain_product, cryptocompare_product
-from hoshino.service import Service
+from .backend import json_backend, balance, duel_backend, multiplier_backend
+from .product import coincap_product, multiplier_product, sina_product, sochain_product, cryptocompare_product
 from nonebot import on_startup
 
 # json_backend代表独立的json存储
@@ -61,3 +60,7 @@ async def buy_or_sell(bot, ev):
 @sv.on_rex(r'^签到$')
 async def buy_or_sell(bot, ev):
     await bot.finish(ev, mgr.daily_check(str(ev['group_id']), str(ev['user_id'])), at_sender=True)
+
+@sv.on_rex(r'^加(\d*)$')
+async def buy_or_sell(bot, ev):
+    await bot.finish(ev, mgr.coin(str(ev['group_id']), str(ev['user_id']),float(ev['match'].group(1))), at_sender=True)
